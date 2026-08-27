@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { findOrCreateProfile, saveSession } from '../lib/session'
+import { errorMessage } from '../lib/errors'
 import { LanguageSwitcher } from '../components/LanguageSwitcher'
 import type { Profile } from '../types'
 
@@ -29,7 +30,7 @@ export function LoginPage({ onSignedIn }: { onSignedIn: (profile: Profile) => vo
       saveSession(profile.id)
       onSignedIn(profile)
     } catch (err) {
-      setError(err instanceof Error ? err.message : String(err))
+      setError(errorMessage(err))
     } finally {
       setLoading(false)
     }

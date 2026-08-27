@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { STORES } from '../data/stores'
 import { addCard } from '../lib/cards'
+import { errorMessage } from '../lib/errors'
 import type { CodeType, MembershipCard, Profile } from '../types'
 
 export function AddCardPage({
@@ -43,7 +44,7 @@ export function AddCardPage({
       onAdded(card)
       navigate('/')
     } catch (err) {
-      setError(err instanceof Error ? err.message : String(err))
+      setError(errorMessage(err))
     } finally {
       setSaving(false)
     }
