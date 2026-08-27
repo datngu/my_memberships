@@ -53,5 +53,8 @@
   "guide.step3.installButtonLabel": "Install",
   "guide.tip.title": "Tip: quick scan at checkout",
   "guide.tip.body": "Tap any card in your list to show its barcode or QR code full-screen, ready for the cashier to scan.",
-  "guide.cta": "Open the app"
+  "guide.cta": "Open the app",
+  "share.button": "Share with a friend",
+  "share.copied": "Link copied!",
+  "share.text": "Join me on Membership Cards — save your Norwegian shop membership cards and scan them fast at checkout. Here's how to get started:"
 }

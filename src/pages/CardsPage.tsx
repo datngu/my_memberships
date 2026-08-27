@@ -4,6 +4,7 @@ import { StoreLogo } from '../components/StoreLogo'
 import { LanguageSwitcher } from '../components/LanguageSwitcher'
 import { getStore } from '../data/stores'
 import { clearSession } from '../lib/session'
+import { ShareGuideButton } from '../components/ShareGuideButton'
 import type { MembershipCard, Profile } from '../types'
 
 export function CardsPage({
@@ -86,6 +87,7 @@ export function CardsPage({
       <Link to="/add" className="fab">
         + {t('cards.add')}
       </Link>
+      <ShareGuideButton className="secondary guide-footer-share" />
       <p className="hint guide-footer-link">
         <Link to="/guide">{t('guide.footerLink')}</Link>
       </p>

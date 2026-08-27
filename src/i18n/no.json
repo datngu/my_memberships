@@ -53,5 +53,8 @@
   "guide.step3.installButtonLabel": "Install",
   "guide.tip.title": "Tips: rask skanning i kassen",
   "guide.tip.body": "Trykk på et kort i listen for å vise strekkoden eller QR-koden i fullskjerm, klar for kassereren å skanne.",
-  "guide.cta": "Åpne appen"
+  "guide.cta": "Åpne appen",
+  "share.button": "Del med en venn",
+  "share.copied": "Lenke kopiert!",
+  "share.text": "Bli med meg på Medlemskort — lagre medlemskortene dine fra norske butikker og skann dem raskt i kassen. Slik kommer du i gang:"
 }

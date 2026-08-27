@@ -53,5 +53,8 @@
   "guide.step3.installButtonLabel": "Install",
   "guide.tip.title": "Mẹo: quét nhanh tại quầy",
   "guide.tip.body": "Nhấn vào bất kỳ thẻ nào trong danh sách để hiện mã vạch hoặc QR toàn màn hình, sẵn sàng cho nhân viên quét.",
-  "guide.cta": "Mở ứng dụng"
+  "guide.cta": "Mở ứng dụng",
+  "share.button": "Chia sẻ với bạn bè",
+  "share.copied": "Đã sao chép đường link!",
+  "share.text": "Tham gia Thẻ thành viên cùng mình — lưu thẻ thành viên các cửa hàng ở Na Uy và quét nhanh khi thanh toán. Hướng dẫn bắt đầu ở đây:"
 }

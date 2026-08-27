@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { LanguageSwitcher } from '../components/LanguageSwitcher'
 import { HomeScreenSteps } from '../components/HomeScreenSteps'
+import { ShareGuideButton } from '../components/ShareGuideButton'
 import loginShot from '../assets/guide/01-login.png'
 import addCardShot from '../assets/guide/04-add-card-filled.png'
 import cardsListShot from '../assets/guide/05-cards-list.png'
@@ -19,6 +20,7 @@ export function GuidePage() {
 
       <h2>{t('guide.title')}</h2>
       <p className="hint">{t('guide.subtitle')}</p>
+      <ShareGuideButton className="secondary" />
 
       <section className="guide-step">
         <h3>{t('guide.step1.title')}</h3>

@@ -206,6 +206,10 @@ button.danger {
   text-align: center;
 }
 
+.guide-footer-share {
+  align-self: center;
+}
+
 .guide-page h2 {
   font-size: 1.4rem;
 }
