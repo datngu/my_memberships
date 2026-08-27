@@ -39,17 +39,24 @@ export function GuidePage() {
         <HomeScreenSteps
           platformTitle={t('guide.step3.iosTitle')}
           icon="share"
-          steps={[
-            t('guide.step3.ios1'),
-            t('guide.step3.ios2'),
-            t('guide.step3.ios3'),
-            t('guide.step3.ios4'),
-          ]}
+          intro={t('guide.step3.iosIntro')}
+          addToHomeLabel={t('guide.step3.addToHomeScreenLabel')}
+          addLabel={t('guide.step3.addButtonLabel')}
+          appName={t('app.title')}
+          tapIconCaption={t('guide.step3.iosTapShare')}
+          tapAddCaption={t('guide.step3.iosTapAdd')}
+          tapConfirmCaption={t('guide.step3.iosTapConfirm')}
         />
         <HomeScreenSteps
           platformTitle={t('guide.step3.androidTitle')}
           icon="menu"
-          steps={[t('guide.step3.android1'), t('guide.step3.android2'), t('guide.step3.android3')]}
+          intro={t('guide.step3.androidIntro')}
+          addToHomeLabel={t('guide.step3.addToHomeScreenLabelAndroid')}
+          addLabel={t('guide.step3.installButtonLabel')}
+          appName={t('app.title')}
+          tapIconCaption={t('guide.step3.androidTapMenu')}
+          tapAddCaption={t('guide.step3.androidTapAdd')}
+          tapConfirmCaption={t('guide.step3.androidTapConfirm')}
         />
       </section>
 

@@ -270,10 +270,166 @@ button.danger {
   color: var(--text-secondary);
 }
 
-.home-screen-steps {
-  margin: 8px 0 0;
-  padding-left: 20px;
+.figure-steps {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.figure-step {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.figure-step p {
+  margin: 0;
   color: var(--text);
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.5;
+}
+
+.mock-frame {
+  position: relative;
+  max-width: 260px;
+}
+
+.mock-frame-inner {
+  background: var(--bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.figure-step-badge {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.mock-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+}
+
+.mock-url-pill {
+  flex: 1;
+  height: 22px;
+  background: var(--border-subtle);
+  border-radius: 999px;
+}
+
+.mock-icon-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border: 2px solid var(--accent-border);
+  border-radius: 50%;
+  color: var(--text);
+}
+
+.mock-sheet,
+.mock-dropdown,
+.mock-dialog {
+  padding: 10px 12px 12px;
+}
+
+.mock-sheet-handle {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  margin: 0 auto 10px;
+}
+
+.mock-sheet-icons-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.mock-sheet-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+}
+
+.mock-sheet-row,
+.mock-dropdown-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.mock-sheet-row:empty,
+.mock-dropdown-row:empty {
+  background: var(--border-subtle);
+  opacity: 0.6;
+  margin-top: 6px;
+}
+
+.mock-highlight {
+  background: var(--accent-bg);
+  border: 1.5px solid var(--accent-border);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.mock-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.mock-dialog-cancel {
+  width: 44px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--border-subtle);
+}
+
+.mock-dialog-btn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.mock-dialog-body {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.mock-app-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--accent-border);
+  flex-shrink: 0;
 }
