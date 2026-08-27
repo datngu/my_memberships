@@ -23,5 +23,7 @@
   "addCard.save": "Save card",
   "addCard.cancel": "Cancel",
   "cardDetail.back": "Back",
-  "cardDetail.delete": "Delete card"
+  "cardDetail.edit": "Edit",
+  "cardDetail.delete": "Delete card",
+  "editCard.title": "Edit card"
 }

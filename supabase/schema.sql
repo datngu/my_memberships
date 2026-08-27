@@ -37,4 +37,5 @@ create policy "anon can create profiles" on profiles for insert with check (true
 
 create policy "anon can read cards" on cards for select using (true);
 create policy "anon can create cards" on cards for insert with check (true);
+create policy "anon can update cards" on cards for update using (true) with check (true);
 create policy "anon can delete cards" on cards for delete using (true);

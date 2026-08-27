@@ -16,6 +16,8 @@ export function CardsPage({
   onSignedOut: () => void
 }) {
   const { t } = useTranslation()
+  const masterCard = cards.find((c) => c.store_id === 'master')
+  const otherCards = cards.filter((c) => c.store_id !== 'master')
 
   function handleSignOut() {
     clearSession()
@@ -38,11 +40,21 @@ export function CardsPage({
         </button>
       </div>
 
-      {cards.length === 0 && <p className="hint">{t('cards.empty')}</p>}
-      {cards.length > 0 && <p className="hint">{t('cards.scan')}</p>}
+      {masterCard && (
+        <Link to={`/card/${masterCard.id}`} className="card-row master-row">
+          <StoreLogo storeId="master" size={56} />
+          <div className="card-row-text">
+            <span className="card-row-title">{masterCard.label || profile.name}</span>
+            <span className="card-row-code">{masterCard.code}</span>
+          </div>
+        </Link>
+      )}
+
+      {otherCards.length === 0 && <p className="hint">{t('cards.empty')}</p>}
+      {otherCards.length > 0 && <p className="hint">{t('cards.scan')}</p>}
 
       <ul className="card-list">
-        {cards.map((card) => {
+        {otherCards.map((card) => {
           const store = getStore(card.store_id)
           return (
             <li key={card.id}>

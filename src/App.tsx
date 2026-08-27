@@ -3,11 +3,17 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage } from './pages/LoginPage'
 import { CardsPage } from './pages/CardsPage'
 import { AddCardPage } from './pages/AddCardPage'
+import { EditCardPage } from './pages/EditCardPage'
 import { CardDetailPage } from './pages/CardDetailPage'
 import { loadCurrentProfile } from './lib/session'
-import { listCards } from './lib/cards'
+import { ensureMasterCard, listCards } from './lib/cards'
 import type { MembershipCard, Profile } from './types'
 import './App.css'
+
+async function loadCardsWithMaster(p: Profile): Promise<MembershipCard[]> {
+  await ensureMasterCard(p.id, p.phone)
+  return listCards(p.id)
+}
 
 function App() {
   const [profile, setProfile] = useState<Profile | null>(null)
@@ -18,7 +24,7 @@ function App() {
     loadCurrentProfile()
       .then(async (p) => {
         setProfile(p)
-        if (p) setCards(await listCards(p.id))
+        if (p) setCards(await loadCardsWithMaster(p))
       })
       .finally(() => setLoading(false))
   }, [])
@@ -30,7 +36,7 @@ function App() {
       <LoginPage
         onSignedIn={async (p) => {
           setProfile(p)
-          setCards(await listCards(p.id))
+          setCards(await loadCardsWithMaster(p))
         }}
       />
     )
@@ -67,6 +73,17 @@ function App() {
           <CardDetailPage
             cards={cards}
             onDeleted={(cardId) => setCards((prev) => prev.filter((c) => c.id !== cardId))}
+          />
+        }
+      />
+      <Route
+        path="/card/:cardId/edit"
+        element={
+          <EditCardPage
+            cards={cards}
+            onUpdated={(card) =>
+              setCards((prev) => prev.map((c) => (c.id === card.id ? card : c)))
+            }
           />
         }
       />

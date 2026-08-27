@@ -1,22 +1,28 @@
 import type { StoreDefinition } from '../types'
 
-// Brand colors approximate each chain's real palette. Swap `initials` for a
-// real SVG/PNG logo under src/assets/logos/ later without changing the id,
-// since MembershipCard.store_id references these ids.
+// 'master' is a reserved id: it is the auto-created phone-number card, not a
+// user-selectable store, and is filtered out of add/edit store pickers (see
+// SELECTABLE_STORES below). 'other' is a deliberate catch-all fallback, not
+// a specific chain, kept so a card can still be added for a store not in
+// this list. Brand colors here are approximate; swap `initials` for a real
+// SVG/PNG logo under src/assets/logos/ later without changing the id, since
+// MembershipCard.store_id references these ids.
 export const STORES: StoreDefinition[] = [
-  { id: 'trumf', name: 'Trumf', color: '#e30613', initials: 'TR' },
-  { id: 'kiwi', name: 'Kiwi', color: '#e2001a', initials: 'KW' },
+  { id: 'master', name: 'Phone / ID', color: '#f59e0b', initials: 'ID' },
+  { id: 'jula', name: 'Jula', color: '#d0021b', initials: 'JU' },
+  { id: 'jysk', name: 'Jysk', color: '#e2001a', initials: 'JY' },
+  { id: 'coop', name: 'Coop', color: '#c8102e', initials: 'CP' },
   { id: 'meny', name: 'Meny', color: '#00843d', initials: 'MY' },
-  { id: 'spar', name: 'Spar', color: '#00693e', initials: 'SP' },
-  { id: 'coop-medlem', name: 'Coop Medlem', color: '#c8102e', initials: 'CO' },
-  { id: 'coop-extra', name: 'Coop Extra', color: '#0072ce', initials: 'EX' },
-  { id: 'coop-obs', name: 'Coop Obs', color: '#e2001a', initials: 'OB' },
-  { id: 'elkjop', name: 'Elkjøpklubben', color: '#004b93', initials: 'EL' },
-  { id: 'circle-k', name: 'Circle K Extra', color: '#d0021b', initials: 'CK' },
-  { id: 'xxl', name: 'XXL Sport', color: '#000000', initials: 'XL' },
-  { id: 'sport1', name: 'Sport 1', color: '#005baa', initials: 'S1' },
+  { id: 'rusta', name: 'Rusta', color: '#c8102e', initials: 'RA' },
+  { id: 'clas-ohlson', name: 'Clas Ohlson', color: '#e2001a', initials: 'CH' },
+  { id: 'megaflis', name: 'Megaflis', color: '#0072ce', initials: 'MF' },
+  { id: 'biltema', name: 'Biltema', color: '#da291c', initials: 'BT' },
+  { id: 'power', name: 'Power', color: '#111827', initials: 'PW' },
+  { id: 'elkjop', name: 'Elkjøp', color: '#004b93', initials: 'EL' },
   { id: 'other', name: 'Other', color: '#475569', initials: '?' },
 ]
+
+export const SELECTABLE_STORES = STORES.filter((s) => s.id !== 'master')
 
 export function getStore(storeId: string): StoreDefinition {
   return STORES.find((s) => s.id === storeId) ?? STORES[STORES.length - 1]

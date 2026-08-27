@@ -65,10 +65,20 @@ button {
   cursor: pointer;
 }
 
-button.secondary {
+button.secondary,
+a.secondary {
   background: transparent;
   color: #0f172a;
   border: 1px solid #cbd5e1;
+}
+
+a.secondary {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 button.danger {
@@ -125,6 +135,20 @@ button.danger {
 .card-row-code {
   color: #64748b;
   font-size: 0.85rem;
+}
+
+.master-row {
+  padding: 16px;
+  border: 2px solid #f59e0b;
+  background: #fffbeb;
+}
+
+.master-row .card-row-title {
+  font-size: 1.25rem;
+}
+
+.master-row .card-row-code {
+  font-size: 1rem;
 }
 
 .fab {

@@ -1,5 +1,6 @@
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { StoreLogo } from '../components/StoreLogo'
 import { CodeDisplay } from '../components/CodeDisplay'
 import { getStore } from '../data/stores'
@@ -18,12 +19,14 @@ export function CardDetailPage({
   const { cardId } = useParams()
   const card = cards.find((c) => c.id === cardId)
 
-  if (!card) {
-    navigate('/')
-    return null
-  }
+  useEffect(() => {
+    if (!card) navigate('/')
+  }, [card, navigate])
+
+  if (!card) return null
 
   const store = getStore(card.store_id)
+  const isMaster = card.store_id === 'master'
 
   async function handleDelete() {
     if (!card) return
@@ -47,9 +50,16 @@ export function CardDetailPage({
         <p className="code-text">{card.code}</p>
       </div>
 
-      <button type="button" className="danger" onClick={handleDelete}>
-        {t('cardDetail.delete')}
-      </button>
+      <div className="form-actions">
+        <Link to={`/card/${card.id}/edit`} className="secondary">
+          {t('cardDetail.edit')}
+        </Link>
+        {!isMaster && (
+          <button type="button" className="danger" onClick={handleDelete}>
+            {t('cardDetail.delete')}
+          </button>
+        )}
+      </div>
     </div>
   )
 }

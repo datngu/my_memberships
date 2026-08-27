@@ -23,5 +23,7 @@
   "addCard.save": "Lagre kort",
   "addCard.cancel": "Avbryt",
   "cardDetail.back": "Tilbake",
-  "cardDetail.delete": "Slett kort"
+  "cardDetail.edit": "Rediger",
+  "cardDetail.delete": "Slett kort",
+  "editCard.title": "Rediger kort"
 }

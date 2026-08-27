@@ -23,5 +23,7 @@
   "addCard.save": "Lưu thẻ",
   "addCard.cancel": "Hủy",
   "cardDetail.back": "Quay lại",
-  "cardDetail.delete": "Xóa thẻ"
+  "cardDetail.edit": "Sửa",
+  "cardDetail.delete": "Xóa thẻ",
+  "editCard.title": "Sửa thẻ"
 }
