@@ -2,16 +2,18 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getStore } from '../data/stores'
-import { updateCard } from '../lib/cards'
+import { deleteCard, updateCard } from '../lib/cards'
 import { errorMessage } from '../lib/errors'
 import type { CodeType, MembershipCard } from '../types'
 
 export function EditCardPage({
   cards,
   onUpdated,
+  onDeleted,
 }: {
   cards: MembershipCard[]
   onUpdated: (card: MembershipCard) => void
+  onDeleted: (cardId: string) => void
 }) {
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -19,11 +21,13 @@ export function EditCardPage({
   const card = cards.find((c) => c.id === cardId)
 
   const store = card ? getStore(card.store_id) : null
+  const isMaster = card?.store_id === 'master'
   const [label, setLabel] = useState(card?.label ?? '')
   const [code, setCode] = useState(card?.code ?? '')
   const [codeType, setCodeType] = useState<CodeType>(card?.code_type ?? 'barcode')
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
+  const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
     if (!card) navigate('/')
@@ -51,6 +55,19 @@ export function EditCardPage({
       setError(errorMessage(err))
     } finally {
       setSaving(false)
+    }
+  }
+
+  async function handleDelete() {
+    if (!card) return
+    setDeleting(true)
+    try {
+      await deleteCard(card.id)
+      onDeleted(card.id)
+      navigate('/')
+    } catch (err) {
+      setError(errorMessage(err))
+      setDeleting(false)
     }
   }
 
@@ -88,6 +105,11 @@ export function EditCardPage({
           </button>
         </div>
       </form>
+      {!isMaster && (
+        <button type="button" className="danger" onClick={handleDelete} disabled={deleting}>
+          {t('cardDetail.delete')}
+        </button>
+      )}
     </div>
   )
 }

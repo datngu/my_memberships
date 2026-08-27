@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { useRegisterSW } from 'virtual:pwa-register/react'
 import { LoginPage } from './pages/LoginPage'
 import { CardsPage } from './pages/CardsPage'
 import { AddCardPage } from './pages/AddCardPage'
@@ -20,6 +21,19 @@ function App() {
   const [profile, setProfile] = useState<Profile | null>(null)
   const [cards, setCards] = useState<MembershipCard[]>([])
   const [loading, setLoading] = useState(true)
+
+  const {
+    needRefresh: [needRefresh],
+    updateServiceWorker,
+  } = useRegisterSW({
+    onRegisteredSW(_url, registration) {
+      // registerType 'prompt' only checks on registration, poll periodically
+      // so a long-open tab still notices a deploy.
+      if (registration) {
+        setInterval(() => registration.update(), 60 * 60 * 1000)
+      }
+    },
+  })
 
   useEffect(() => {
     loadCurrentProfile()
@@ -55,6 +69,8 @@ function App() {
               setProfile(null)
               setCards([])
             }}
+            updateAvailable={needRefresh}
+            onUpdate={() => updateServiceWorker(true)}
           />
         }
       />
@@ -72,15 +88,7 @@ function App() {
           />
         }
       />
-      <Route
-        path="/card/:cardId"
-        element={
-          <CardDetailPage
-            cards={cards}
-            onDeleted={(cardId) => setCards((prev) => prev.filter((c) => c.id !== cardId))}
-          />
-        }
-      />
+      <Route path="/card/:cardId" element={<CardDetailPage cards={cards} />} />
       <Route
         path="/card/:cardId/edit"
         element={
@@ -89,6 +97,7 @@ function App() {
             onUpdated={(card) =>
               setCards((prev) => prev.map((c) => (c.id === card.id ? card : c)))
             }
+            onDeleted={(cardId) => setCards((prev) => prev.filter((c) => c.id !== cardId))}
           />
         }
       />

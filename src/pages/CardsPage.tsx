@@ -1,35 +1,31 @@
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { StoreLogo } from '../components/StoreLogo'
 import { LanguageSwitcher } from '../components/LanguageSwitcher'
 import { getStore } from '../data/stores'
 import { clearSession } from '../lib/session'
-import { checkForAppUpdate } from '../lib/pwa'
 import type { MembershipCard, Profile } from '../types'
 
 export function CardsPage({
   profile,
   cards,
   onSignedOut,
+  updateAvailable,
+  onUpdate,
 }: {
   profile: Profile
   cards: MembershipCard[]
   onSignedOut: () => void
+  updateAvailable: boolean
+  onUpdate: () => void
 }) {
   const { t } = useTranslation()
   const masterCard = cards.find((c) => c.store_id === 'master')
   const otherCards = cards.filter((c) => c.store_id !== 'master')
-  const [checkingUpdate, setCheckingUpdate] = useState(false)
 
   function handleSignOut() {
     clearSession()
     onSignedOut()
-  }
-
-  async function handleCheckForUpdate() {
-    setCheckingUpdate(true)
-    await checkForAppUpdate()
   }
 
   return (
@@ -49,14 +45,11 @@ export function CardsPage({
           <button type="button" onClick={handleSignOut} className="secondary">
             {t('cards.logout')}
           </button>
-          <button
-            type="button"
-            onClick={handleCheckForUpdate}
-            className="secondary"
-            disabled={checkingUpdate}
-          >
-            {checkingUpdate ? t('cards.updating') : t('cards.update')}
-          </button>
+          {updateAvailable && (
+            <button type="button" onClick={onUpdate} className="secondary">
+              {t('cards.update')}
+            </button>
+          )}
         </div>
       </div>
 

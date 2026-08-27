@@ -173,8 +173,11 @@ button.danger {
   text-align: center;
 }
 
-.back-button {
-  align-self: flex-start;
+.detail-header {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card-detail-body {
