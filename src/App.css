@@ -75,6 +75,20 @@ button.danger {
   background: #dc2626;
 }
 
+.top-bar button {
+  background: transparent;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
+
+.top-bar button.lang-active {
+  background: #0f172a;
+  color: #fff;
+  border-color: #0f172a;
+}
+
 .form-actions {
   display: flex;
   gap: 8px;
