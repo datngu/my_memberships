@@ -25,6 +25,13 @@
   justify-content: space-between;
 }
 
+.header-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+}
+
 .hint {
   color: var(--text-secondary);
   font-size: 0.9rem;

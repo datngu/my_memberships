@@ -11,6 +11,8 @@
   "cards.empty": "Chưa có thẻ nào. Hãy thêm thẻ thành viên đầu tiên.",
   "cards.add": "Thêm thẻ",
   "cards.logout": "Đăng xuất",
+  "cards.update": "Kiểm tra cập nhật",
+  "cards.updating": "Đang kiểm tra…",
   "cards.scan": "Chạm vào thẻ để quét",
   "addCard.title": "Thêm thẻ",
   "addCard.store": "Cửa hàng",

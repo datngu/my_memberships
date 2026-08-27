@@ -11,6 +11,8 @@
   "cards.empty": "No cards yet. Add your first membership card.",
   "cards.add": "Add card",
   "cards.logout": "Sign out",
+  "cards.update": "Check for update",
+  "cards.updating": "Checking…",
   "cards.scan": "Tap a card to scan",
   "addCard.title": "Add a card",
   "addCard.store": "Store",

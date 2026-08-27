@@ -11,6 +11,8 @@
   "cards.empty": "Ingen kort ennå. Legg til ditt første medlemskort.",
   "cards.add": "Legg til kort",
   "cards.logout": "Logg ut",
+  "cards.update": "Se etter oppdatering",
+  "cards.updating": "Sjekker…",
   "cards.scan": "Trykk på et kort for å skanne",
   "addCard.title": "Legg til kort",
   "addCard.store": "Butikk",
