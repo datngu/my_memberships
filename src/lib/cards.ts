@@ -60,12 +60,20 @@ export async function deleteCard(cardId: string): Promise<void> {
 // Most Norwegian stores look up membership by phone number, so every
 // profile gets one auto-created "master" card carrying it. Existing
 // profiles (from before this existed) get it lazily on next login.
-export async function ensureMasterCard(profileId: string, phone: string): Promise<MembershipCard | null> {
+//
+// The select-then-insert here is inherently racy (e.g. React StrictMode
+// double-firing an effect in dev calls this twice back to back), so the
+// database also enforces at most one master card per profile
+// (cards_one_master_per_profile in schema.sql). If two calls race, the
+// loser's insert fails with a unique violation (Postgres code 23505) --
+// that's expected, not an error, so it re-selects the winner's row.
+export async function ensureMasterCard(profileId: string, phone: string): Promise<MembershipCard> {
   const { data: existing, error: findError } = await supabase
     .from('cards')
     .select('*')
     .eq('profile_id', profileId)
     .eq('store_id', 'master')
+    .limit(1)
     .maybeSingle()
 
   if (findError) throw findError
@@ -84,6 +92,18 @@ export async function ensureMasterCard(profileId: string, phone: string): Promis
     .select('*')
     .single()
 
-  if (insertError) throw insertError
+  if (insertError) {
+    if (insertError.code === '23505') {
+      const { data: winner, error: refetchError } = await supabase
+        .from('cards')
+        .select('*')
+        .eq('profile_id', profileId)
+        .eq('store_id', 'master')
+        .single()
+      if (refetchError) throw refetchError
+      return winner as MembershipCard
+    }
+    throw insertError
+  }
   return created as MembershipCard
 }

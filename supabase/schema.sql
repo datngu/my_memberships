@@ -29,6 +29,13 @@ create table cards (
 
 create index cards_profile_id_idx on cards(profile_id);
 
+-- At most one 'master' (phone number) card per profile. Without this,
+-- concurrent calls to ensureMasterCard (e.g. React StrictMode double-firing
+-- an effect in dev) can each see "not found" and both insert, and once two
+-- rows exist, ensureMasterCard's .maybeSingle() lookup throws on every
+-- subsequent load, silently breaking the whole card list for that profile.
+create unique index cards_one_master_per_profile on cards (profile_id) where (store_id = 'master');
+
 alter table profiles enable row level security;
 alter table cards enable row level security;
 
