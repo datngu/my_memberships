@@ -86,6 +86,9 @@ export function CardsPage({
       <Link to="/add" className="fab">
         + {t('cards.add')}
       </Link>
+      <p className="hint guide-footer-link">
+        <Link to="/guide">{t('guide.footerLink')}</Link>
+      </p>
     </div>
   )
 }

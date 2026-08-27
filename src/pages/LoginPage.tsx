@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import { findOrCreateProfile, saveSession } from '../lib/session'
 import { errorMessage } from '../lib/errors'
 import { LanguageSwitcher } from '../components/LanguageSwitcher'
@@ -68,6 +69,9 @@ export function LoginPage({ onSignedIn }: { onSignedIn: (profile: Profile) => vo
           {t('login.submit')}
         </button>
       </form>
+      <p className="hint guide-footer-link">
+        <Link to="/guide">{t('guide.footerLink')}</Link>
+      </p>
     </div>
   )
 }

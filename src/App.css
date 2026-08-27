@@ -201,3 +201,79 @@ button.danger {
   font-size: 1.1rem;
   letter-spacing: 0.05em;
 }
+
+.guide-footer-link {
+  text-align: center;
+}
+
+.guide-page h2 {
+  font-size: 1.4rem;
+}
+
+.guide-step {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.guide-step h3 {
+  font-size: 1.1rem;
+}
+
+.guide-step p {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.guide-figure {
+  width: 100%;
+  max-width: 280px;
+  height: 340px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  align-self: center;
+}
+
+.guide-figure-narrow {
+  height: 260px;
+}
+
+.guide-tip {
+  border-top: none;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.home-screen-platform {
+  background: var(--input-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+.home-screen-platform h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+.home-screen-platform-icon {
+  display: inline-flex;
+  color: var(--text-secondary);
+}
+
+.home-screen-steps {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
