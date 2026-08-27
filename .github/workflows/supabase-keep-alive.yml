@@ -1,0 +1,29 @@
+name: Supabase keep-alive
+
+# Supabase's free tier pauses a project after 7 days with no API activity.
+# This just needs to generate *any* request against the project on a
+# schedule well inside that window, so the friend group's usage doesn't
+# have to be relied on to keep it awake.
+on:
+  schedule:
+    - cron: '17 6 */2 * *' # every 2 days, off-the-hour to avoid the scheduler pile-up at :00
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        run: |
+          status=$(curl -s -o /dev/null -w "%{http_code}" \
+            "${SUPABASE_URL}/rest/v1/profiles?select=id&limit=1" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}")
+          echo "Supabase responded with HTTP $status"
+          if [ "$status" -ge 400 ]; then
+            echo "::error::Supabase ping failed with HTTP $status"
+            exit 1
+          fi
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
