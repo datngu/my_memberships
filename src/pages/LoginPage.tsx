@@ -50,10 +50,6 @@ export function LoginPage({ onSignedIn }: { onSignedIn: (profile: Profile) => vo
           <input value={name} onChange={(e) => setName(e.target.value)} required />
         </label>
         <label>
-          {t('login.email')}
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label>
           {t('login.phone')}
           <input
             type="tel"
@@ -62,6 +58,10 @@ export function LoginPage({ onSignedIn }: { onSignedIn: (profile: Profile) => vo
             onChange={(e) => setPhone(e.target.value)}
             required
           />
+        </label>
+        <label>
+          {t('login.email')}
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
         {error && <p className="error">{error}</p>}
         <button type="submit" disabled={loading}>

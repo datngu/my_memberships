@@ -36,6 +36,21 @@ export async function findOrCreateProfile(input: {
   return created as Profile
 }
 
+export async function updateProfile(
+  profileId: string,
+  input: { name: string; email: string | null },
+): Promise<Profile> {
+  const { data, error } = await supabase
+    .from('profiles')
+    .update({ name: input.name, email: input.email })
+    .eq('id', profileId)
+    .select('*')
+    .single()
+
+  if (error) throw error
+  return data as Profile
+}
+
 export function saveSession(profileId: string) {
   localStorage.setItem(SESSION_KEY, profileId)
 }

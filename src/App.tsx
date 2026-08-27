@@ -4,6 +4,7 @@ import { LoginPage } from './pages/LoginPage'
 import { CardsPage } from './pages/CardsPage'
 import { AddCardPage } from './pages/AddCardPage'
 import { EditCardPage } from './pages/EditCardPage'
+import { EditProfilePage } from './pages/EditProfilePage'
 import { CardDetailPage } from './pages/CardDetailPage'
 import { loadCurrentProfile } from './lib/session'
 import { ensureMasterCard, listCards } from './lib/cards'
@@ -56,6 +57,10 @@ function App() {
             }}
           />
         }
+      />
+      <Route
+        path="/profile/edit"
+        element={<EditProfilePage profile={profile} onUpdated={(p) => setProfile(p)} />}
       />
       <Route
         path="/add"

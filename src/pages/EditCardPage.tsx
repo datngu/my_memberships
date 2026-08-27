@@ -81,10 +81,10 @@ export function EditCardPage({
         {error && <p className="error">{error}</p>}
         <div className="form-actions">
           <button type="button" className="secondary" onClick={() => navigate(`/card/${card.id}`)}>
-            {t('addCard.cancel')}
+            {t('common.cancel')}
           </button>
           <button type="submit" disabled={saving}>
-            {t('addCard.save')}
+            {t('common.save')}
           </button>
         </div>
       </form>

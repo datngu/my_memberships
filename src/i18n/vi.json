@@ -20,10 +20,11 @@
   "addCard.codeType": "Loại mã",
   "addCard.codeType.barcode": "Mã vạch",
   "addCard.codeType.qr": "Mã QR",
-  "addCard.save": "Lưu thẻ",
-  "addCard.cancel": "Hủy",
+  "common.save": "Lưu",
+  "common.cancel": "Hủy",
   "cardDetail.back": "Quay lại",
   "cardDetail.edit": "Sửa",
   "cardDetail.delete": "Xóa thẻ",
-  "editCard.title": "Sửa thẻ"
+  "editCard.title": "Sửa thẻ",
+  "editProfile.title": "Sửa thông tin"
 }

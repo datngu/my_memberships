@@ -20,10 +20,11 @@
   "addCard.codeType": "Code type",
   "addCard.codeType.barcode": "Barcode",
   "addCard.codeType.qr": "QR code",
-  "addCard.save": "Save card",
-  "addCard.cancel": "Cancel",
+  "common.save": "Save",
+  "common.cancel": "Cancel",
   "cardDetail.back": "Back",
   "cardDetail.edit": "Edit",
   "cardDetail.delete": "Delete card",
-  "editCard.title": "Edit card"
+  "editCard.title": "Edit card",
+  "editProfile.title": "Edit your info"
 }

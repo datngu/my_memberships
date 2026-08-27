@@ -33,7 +33,9 @@ export function CardsPage({
       <div className="cards-header">
         <div>
           <h2>{t('cards.title')}</h2>
-          <p className="hint">{profile.name}</p>
+          <p className="hint">
+            {profile.name} · <Link to="/profile/edit">{t('cardDetail.edit')}</Link>
+          </p>
         </div>
         <button type="button" onClick={handleSignOut} className="secondary">
           {t('cards.logout')}

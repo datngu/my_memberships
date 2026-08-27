@@ -20,10 +20,11 @@
   "addCard.codeType": "Kodetype",
   "addCard.codeType.barcode": "Strekkode",
   "addCard.codeType.qr": "QR-kode",
-  "addCard.save": "Lagre kort",
-  "addCard.cancel": "Avbryt",
+  "common.save": "Lagre",
+  "common.cancel": "Avbryt",
   "cardDetail.back": "Tilbake",
   "cardDetail.edit": "Rediger",
   "cardDetail.delete": "Slett kort",
-  "editCard.title": "Rediger kort"
+  "editCard.title": "Rediger kort",
+  "editProfile.title": "Rediger info"
 }
