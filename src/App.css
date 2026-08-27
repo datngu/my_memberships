@@ -297,9 +297,13 @@ button.danger {
   max-width: 260px;
 }
 
+/* .mock-* figures below are always light, not themed: they depict a phone's
+   own browser chrome (Safari/Chrome toolbar, share sheet), which is real UI
+   photographed/drawn as-is regardless of this page's color scheme, same
+   reasoning as .code-wrap staying white. Colors are literals on purpose. */
 .mock-frame-inner {
-  background: var(--bg);
-  border: 1px solid var(--border-subtle);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   overflow: hidden;
 }
@@ -311,8 +315,8 @@ button.danger {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--button-bg);
-  color: var(--button-text);
+  background: #0f172a;
+  color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
   display: flex;
@@ -331,7 +335,7 @@ button.danger {
 .mock-url-pill {
   flex: 1;
   height: 22px;
-  background: var(--border-subtle);
+  background: #e2e8f0;
   border-radius: 999px;
 }
 
@@ -340,9 +344,9 @@ button.danger {
   align-items: center;
   justify-content: center;
   padding: 5px;
-  border: 2px solid var(--accent-border);
+  border: 2px solid #f59e0b;
   border-radius: 50%;
-  color: var(--text);
+  color: #0f172a;
 }
 
 .mock-sheet,
@@ -355,7 +359,7 @@ button.danger {
   width: 32px;
   height: 4px;
   border-radius: 2px;
-  background: var(--border);
+  background: #cbd5e1;
   margin: 0 auto 10px;
 }
 
@@ -369,7 +373,7 @@ button.danger {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--border-subtle);
+  background: #e2e8f0;
 }
 
 .mock-sheet-row,
@@ -381,20 +385,20 @@ button.danger {
   padding: 0 8px;
   border-radius: 8px;
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: #64748b;
 }
 
 .mock-sheet-row:empty,
 .mock-dropdown-row:empty {
-  background: var(--border-subtle);
+  background: #e2e8f0;
   opacity: 0.6;
   margin-top: 6px;
 }
 
 .mock-highlight {
-  background: var(--accent-bg);
-  border: 1.5px solid var(--accent-border);
-  color: var(--text);
+  background: #fffbeb;
+  border: 1.5px solid #f59e0b;
+  color: #0f172a;
   font-weight: 600;
 }
 
@@ -409,7 +413,7 @@ button.danger {
   width: 44px;
   height: 14px;
   border-radius: 4px;
-  background: var(--border-subtle);
+  background: #e2e8f0;
 }
 
 .mock-dialog-btn {
@@ -423,13 +427,13 @@ button.danger {
   align-items: center;
   gap: 10px;
   font-size: 0.85rem;
-  color: var(--text);
+  color: #0f172a;
 }
 
 .mock-app-icon {
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: var(--accent-border);
+  background: #f59e0b;
   flex-shrink: 0;
 }
