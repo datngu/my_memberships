@@ -2,6 +2,8 @@
 
 A mobile-first PWA for saving Norwegian shop membership cards and pulling one up fast at checkout. Installable to a home screen icon; no password, just name + phone number.
 
+Live at **https://mymemberships.vercel.app**
+
 ## Stack
 
 - React + Vite + TypeScript, packaged as a PWA (`vite-plugin-pwa`)
@@ -26,7 +28,7 @@ A mobile-first PWA for saving Norwegian shop membership cards and pulling one up
 
 ## Deploying
 
-Push to a git repo and import it into [Vercel](https://vercel.com) (free tier). Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as environment variables in the Vercel project settings. Vercel auto-detects Vite and serves the PWA over HTTPS, which is required for install prompts and service workers.
+Deployed on [Vercel](https://vercel.com) (free tier), project `datngu/my_memberships`, linked via the Vercel CLI rather than a GitHub import (no GitHub remote for this repo yet, so there's no auto-deploy on push — re-run `vercel deploy --prod` after changes, or connect a git remote later for that). `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are set as environment variables on the Vercel project (all three environments: production/preview/development), added with `--type config` since the Supabase anon key is meant to be public (protected by RLS, not secrecy) and Vite bundles `VITE_`-prefixed vars into client JS anyway. Vercel serves the PWA over HTTPS, which is required for install prompts and service workers.
 
 ## Security note
 
