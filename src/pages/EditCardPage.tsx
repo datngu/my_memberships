@@ -106,7 +106,7 @@ export function EditCardPage({
         </div>
       </form>
       {!isMaster && (
-        <button type="button" className="danger" onClick={handleDelete} disabled={deleting}>
+        <button type="button" className="danger-link" onClick={handleDelete} disabled={deleting}>
           {t('cardDetail.delete')}
         </button>
       )}

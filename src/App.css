@@ -91,9 +91,12 @@ a.secondary {
   align-items: center;
 }
 
-button.danger {
-  background: var(--danger);
-  color: #fff;
+.danger-link {
+  align-self: center;
+  background: transparent;
+  color: var(--danger);
+  padding: 6px 10px;
+  font-size: 0.85rem;
 }
 
 .top-bar button {
