@@ -26,6 +26,7 @@
   "cardDetail.back": "Quay lại",
   "cardDetail.edit": "Sửa",
   "cardDetail.delete": "Xóa thẻ",
+  "cardDetail.deleteConfirm": "Xóa thẻ này? Không thể hoàn tác.",
   "editCard.title": "Sửa thẻ",
   "editProfile.title": "Sửa thông tin",
   "guide.footerLink": "Hướng dẫn sử dụng",

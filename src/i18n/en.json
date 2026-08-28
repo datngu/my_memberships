@@ -26,6 +26,7 @@
   "cardDetail.back": "Back",
   "cardDetail.edit": "Edit",
   "cardDetail.delete": "Delete card",
+  "cardDetail.deleteConfirm": "Delete this card? This can't be undone.",
   "editCard.title": "Edit card",
   "editProfile.title": "Edit your info",
   "guide.footerLink": "How to use this app",

@@ -26,6 +26,7 @@
   "cardDetail.back": "Tilbake",
   "cardDetail.edit": "Rediger",
   "cardDetail.delete": "Slett kort",
+  "cardDetail.deleteConfirm": "Slette dette kortet? Dette kan ikke angres.",
   "editCard.title": "Rediger kort",
   "editProfile.title": "Rediger info",
   "guide.footerLink": "Slik bruker du appen",

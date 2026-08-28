@@ -60,6 +60,7 @@ export function EditCardPage({
 
   async function handleDelete() {
     if (!card) return
+    if (!window.confirm(t('cardDetail.deleteConfirm'))) return
     setDeleting(true)
     try {
       await deleteCard(card.id)
